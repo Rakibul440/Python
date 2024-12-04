@@ -3,7 +3,7 @@ from turtle import  *
 import  random
 
 t = Turtle()
-t.speed(10)
+t.speed("fastest")
 
 # Set the color mode to RGB (0-255)
 turtle.colormode(255)
@@ -22,10 +22,10 @@ angle = [0,90,180,270]
 
 def random_walk():
     t.width(5)
-    for i in range(50):
+    for i in range(200):
         t.color(random_color())
         t.forward(20)
-        t.dot(10, random_color())
+        # t.dot(10, random_color())
         t.right(random.choice(angle))
         
 random_walk()
