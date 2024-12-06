@@ -11,14 +11,20 @@ class Snake :
         self.segments = []
         self.create_snake() # ASA Snake will be called this function will be triggered
         self.head = self.segments[0]
+
     def create_snake(self):
         for position in STARTING_POSITIONS:
-            new_segments = Turtle(shape="square")
-            new_segments.penup()
-            new_segments.color("white")
-            new_segments.goto(position)
-            self.segments.append(new_segments)
-        self.segments[0].color("red")
+            self.add_segment(position)
+
+    def add_segment(self,position):
+        new_segments = Turtle(shape="square")
+        new_segments.penup()
+        new_segments.color("white")
+        new_segments.goto(position)
+        self.segments.append(new_segments)
+
+    def extend(self):
+        self.add_segment(self.segments[-1].position())
 
     def move(self):
         for seg_num in range(len(self.segments) - 1, 0, -1):
